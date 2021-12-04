@@ -87,7 +87,7 @@ j = sympy.I
 om = sympy.symbols("w")
 for i in range(len(funmikh)):
     funmikh[i] = funmikh[i] * (j * om) ** i
-x = numpy.arange(0, 1, 0.01)
+x = numpy.arange(0, 20, 0.01)
 mc = []
 for i in x:
     sum = 0
@@ -115,9 +115,9 @@ for i in range(len(mc) - 1):
             flagposcrosX = True
             flagposcrosX = False
     if num >= 3 and flagcros:
-        print("Система устойчива по Михайлову")
+        print("Система устойчива")
     else:
-        print("Система устойчива по Михайлову")
+        print("Система устойчива")
 
 plt.title("Михайлов")
 ex = matplotlib.pyplot.gca()
@@ -127,8 +127,8 @@ ex.spines["left"].set_position("zero")
 ex.spines["right"].set_color("none")
 ex.spines["bottom"].set_position("zero")
 ex.spines["top"].set_color("none")
-plt.xlim(-250, 250)
-plt.ylim(-250, 250)
+plt.xlim(-1000, 1000)
+plt.ylim(-1000, 1000)
 plt.xlabel("re")
 plt.ylabel("im")
 plt.show()
