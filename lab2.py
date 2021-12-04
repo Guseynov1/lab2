@@ -76,22 +76,22 @@ def fCh():
     dlinu = len(u)
     for i in range(dlinu):
         dicu["%s" % i] = u[i]
-    w = symbols("w", real=True)
+    w = symbols(" w", real=True)
     z = -(dicu["0"]) * I * w ** 3 - (dicu["1"]) * w ** 2 + (dicu["2"]) * I * w + (dicu["3"])
     # z = -12.25 * I * w ** 3 - 43.04 * w ** 2 + 204.83 * I * w + 25 для k = 22
-    print("Характеристический многочлен замкнутой системы: %s" % z)
+    print("Характеристический многочлен Wzam: %s" % z)
     zr = re(z)
     zm = im(z)
+    print("Начальная точка M(%s,%s)" % (zr.subs({w: 0}), zm.subs({w: 0})))
     print("Real Re= %s" % zr)
     print("Imagin Im= %s" % zm)
-    plt.figure()
-    plt.title("Годограф Михайлова")
     x = [zr.subs({w: q}) for q in numpy.arange(0, 100, 0.1)]
     y = [zm.subs({w: q}) for q in numpy.arange(0, 100, 0.1)]
     plt.axis([-100.0, 100.0, -100.0, 100.0])
+    plt.title("Начальная точка M(%s,%s)" % (zr.subs({w: 0}), zm.subs({w: 0})))
     plt.plot(x, y)
     plt.grid(True)
-    return
+    plt.show()
 
 # Поиск Кос
 for Koc in numpy.arange(0, 100, 0.01):
