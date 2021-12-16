@@ -1,13 +1,9 @@
-import colorama as clm
 import control
 import matplotlib.pyplot
 import sympy as sympy
-from sympy import *
 import numpy as numpy
 import matplotlib.pyplot as plt
 import control.matlab as mtb
-import math
-from numpy import arange
 
 Koc = 8
 # Исходные данные
@@ -115,9 +111,10 @@ for i in range(len(mc) - 1):
             flagposcrosX = True
             flagposcrosX = False
     if num >= 3 and flagcros:
-        print("Система устойчива")
+        print("Система неустойчива")
     else:
         print("Система устойчива")
+        break
 
 plt.title("Михайлов")
 ex = matplotlib.pyplot.gca()
